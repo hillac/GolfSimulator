@@ -38,16 +38,31 @@ data class SwingMetrics(
     val clubHeadSpeedMph: Double,
     val ballSpeedMph: Double,
     val launchAngleDegrees: Double,
+    val horizontalLaunchDeg: Double = 0.0,
     val swingPathDegrees: Double,   // -left to +right (in-to-out positive)
     val faceAngleDegrees: Double,   // -open to +closed
     val smashFactor: Double,        // ball speed / club speed ratio
     val attackAngleDegrees: Double, // downward negative, upward positive
+    val attackAngleDeg: Double = attackAngleDegrees,
+    val dynamicLoftDeg: Double = 0.0,
     val spinRpm: Double,
-    val sidespin: Double,
+    val backspinRpm: Double = spinRpm,
+    val sidespinRpm: Double = 0.0,
+    val spinAxisDeg: Double = 0.0,
     val confidence: Float           // 0.0 to 1.0 detection confidence
 ) {
     companion object {
-        fun empty() = SwingMetrics(0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0f)
+        fun empty() = SwingMetrics(
+            clubHeadSpeedMph = 0.0,
+            ballSpeedMph = 0.0,
+            launchAngleDegrees = 0.0,
+            swingPathDegrees = 0.0,
+            faceAngleDegrees = 0.0,
+            smashFactor = 0.0,
+            attackAngleDegrees = 0.0,
+            spinRpm = 0.0,
+            confidence = 0f
+        )
     }
 }
 
@@ -68,7 +83,8 @@ data class ShotResult(
     val flightPath: List<FlightPoint>,
     val landingZone: LandingZone,
     val spinRate: Double,
-    val shotShape: ShotShape
+    val shotShape: ShotShape,
+    val landAngleDeg: Double = 0.0
 )
 
 enum class LandingZone {

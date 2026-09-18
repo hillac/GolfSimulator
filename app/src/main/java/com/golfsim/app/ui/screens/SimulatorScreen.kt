@@ -28,6 +28,7 @@ import com.golfsim.app.ui.GolfSimViewModel
 import com.golfsim.app.ui.Screen
 import com.golfsim.app.ui.theme.*
 import kotlin.math.abs
+import kotlin.math.pow
 import kotlin.math.cos
 import kotlin.math.sin
 import kotlin.math.sqrt

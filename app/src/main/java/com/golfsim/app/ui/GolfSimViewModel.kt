@@ -266,7 +266,7 @@ class GolfSimViewModel(application: Application) : AndroidViewModel(application)
 
     override fun onCleared() {
         super.onCleared()
-        cameraManager.shutdown()
+        cameraManager.stopCamera()
     }
 }
 
